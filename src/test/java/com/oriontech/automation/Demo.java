@@ -2,15 +2,10 @@ package com.oriontech.automation;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.oriontech.core.CustomDriver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Demo {
 
