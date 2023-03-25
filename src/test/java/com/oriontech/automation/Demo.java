@@ -4,20 +4,20 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.oriontech.core.CustomDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Demo {
+
 	
-	@Test(enabled=false)
-	public void initializeChrome() {	
-	  //System.setProperty("webdriver.chrome.driver", ".//src//main//resources//driver//chromedriver.exe");
-	  WebDriverManager.chromedriver().setup();
-	  ChromeOptions options = new ChromeOptions();
-	  options.addArguments("--headless");
-	  WebDriver driver = new ChromeDriver(options); 
+	@Test
+	public void demo1() {	
+	  WebDriver driver = CustomDriver.initializeChrome();
 	  driver.get("https://www.google.com");
 	  driver.manage().window().maximize();
 	  String title = driver.getTitle();
@@ -29,11 +29,7 @@ public class Demo {
 	
 	@Test
 	public void handleDropdown() throws InterruptedException {	
-		  //System.setProperty("webdriver.chrome.driver", ".//src//main//resources//driver//chromedriver.exe");
-		  WebDriverManager.chromedriver().setup();
-		  ChromeOptions options = new ChromeOptions();
-		  //options.addArguments("--headless");
-		  WebDriver driver = new ChromeDriver(options); 
+		  WebDriver driver = CustomDriver.initializeChrome(); 
 		  driver.get("https://www.facebook.com");
 		  driver.manage().window().maximize();
 		  String title = driver.getTitle();
