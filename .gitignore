@@ -1,0 +1,7 @@
+### output
+target/
+test-output/
+
+### binary files
+.idea/
+
