@@ -13,7 +13,6 @@ import java.util.List;
 
 public class DemoTest {
 
-	
 	@Test
 	public void demo1() {	
 	  WebDriver driver = CustomDriver.initializeChrome();
