@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class DemoTest {
+public class DropdownDemoTest {
 
 	@Test
 	public void demo1() {	
