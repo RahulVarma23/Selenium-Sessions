@@ -1,23 +1,19 @@
 package com.oriontech.automation;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.oriontech.core.CustomDriver;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class DropdownDemoTest {
+public class DropdownDemoTest extends BaseUiTest {
 
 	@Test
-	public void demo1() {	
-	  WebDriver driver = CustomDriver.initializeChrome();
+	public void demo1() {
 	  driver.get("https://www.google.com");
-	  driver.manage().window().maximize();
 	  String title = driver.getTitle();
 	  System.out.println("Title is: "+title);
 	  String currentUrl = driver.getCurrentUrl();
@@ -26,10 +22,8 @@ public class DropdownDemoTest {
 	}
 	
 	@Test
-	public void handleDropdown() throws InterruptedException {	
-		  WebDriver driver = CustomDriver.initializeChrome(); 
+	public void handleDropdown() throws InterruptedException {
 		  driver.get("https://www.facebook.com");
-		  driver.manage().window().maximize();
 		  String title = driver.getTitle();
 		  System.out.println("Title is: "+title);
 		  String currentUrl = driver.getCurrentUrl();

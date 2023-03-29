@@ -1,25 +1,13 @@
 package com.oriontech.automation;
 
-import com.oriontech.core.CustomDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class MouseHoverDemoTest {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void runPrerequisite() {
-        driver = CustomDriver.initializeChrome();
-        driver.manage().window().maximize();
-    }
+public class MouseHoverDemoTest extends BaseUiTest {
 
     @Test(priority=-1)
     public void handleMouseMovement() throws InterruptedException {
@@ -56,8 +44,24 @@ public class MouseHoverDemoTest {
         Assert.assertTrue(driver.getTitle().equalsIgnoreCase("mobile - google search"));
     }
 
-    @AfterMethod
-    public void tearDown(){
-        driver.quit();
+    @Test
+    public void dragElementToDestination() throws InterruptedException {
+        driver.get("https://jqueryui.com/droppable/");
+        Assert.assertTrue(driver.getTitle().contains("Droppable"));
+
+        Thread.sleep(2000);
+
+        WebElement frameElement = driver.findElement(By.cssSelector(".demo-frame"));
+
+        driver.switchTo().frame(frameElement);
+        
+        WebElement destination = driver.findElement(By.cssSelector("div[class*='droppable']"));
+        WebElement source = driver.findElement(By.cssSelector("div[class*='draggable']"));
+
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(source, destination).build().perform();
+        Thread.sleep(3000);
+
+        Assert.assertTrue(destination.getText().equals("Dropped!"));
     }
 }
