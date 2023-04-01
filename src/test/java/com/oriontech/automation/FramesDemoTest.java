@@ -24,11 +24,9 @@ public class FramesDemoTest extends BaseUiTest {
 
         Actions actions = new Actions(driver);
         actions.dragAndDrop(source, destination).build().perform();
-
         Assert.assertTrue(destination.getText().equals("Dropped!"));
 
         driver.switchTo().defaultContent();
-
         driver.findElement(By.cssSelector("a[href*=accordion]")).click();
         Assert.assertTrue(driver.getCurrentUrl().contains("/accordion/"));
     }
