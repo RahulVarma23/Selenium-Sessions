@@ -1,4 +1,4 @@
-package staticData.enums;
+package staticData;
 
 public class Widget {
 
