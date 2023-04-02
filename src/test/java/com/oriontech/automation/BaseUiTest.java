@@ -1,6 +1,6 @@
 package com.oriontech.automation;
 
-import com.oriontech.core.CustomDriver;
+import core.CustomDriver;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
