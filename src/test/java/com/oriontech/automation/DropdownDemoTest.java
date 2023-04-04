@@ -2,7 +2,9 @@ package com.oriontech.automation;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.ArrayList;
@@ -23,11 +25,14 @@ public class DropdownDemoTest extends BaseUiTest {
 	
 	@Test
 	public void handleDropdown() throws InterruptedException {
+		  WebDriverWait webDriverWait = new WebDriverWait(driver, 15);
 		  driver.get("https://www.facebook.com");
 		  String title = driver.getTitle();
 		  System.out.println("Title is: "+title);
 		  String currentUrl = driver.getCurrentUrl();
 		  System.out.println("Url is: "+currentUrl);
+
+		  webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Create new account']")));
 		  driver.findElement(By.xpath("//a[text()='Create new account']")).click();
 		  Thread.sleep(2000);
 		  boolean isElementPresent =driver.findElement(By.xpath("//button[@name='websubmit']")).isDisplayed();	  
