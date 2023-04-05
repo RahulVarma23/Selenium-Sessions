@@ -3,12 +3,10 @@ package com.oriontech.automation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class WebTable2Demo extends BaseUiTest {
 
@@ -39,7 +37,6 @@ public class WebTable2Demo extends BaseUiTest {
                 map.put(name, 1);
             }
         }
-
         return map;
     }
 }

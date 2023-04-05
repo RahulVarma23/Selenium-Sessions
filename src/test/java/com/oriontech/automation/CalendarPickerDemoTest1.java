@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 
 public class CalendarPickerDemoTest1 extends BaseUiTest {
 
-
     String URL = "https://www.goibibo.com/";
     String MonthToBeSelected = "August 2023";
     String DAY = "20";
