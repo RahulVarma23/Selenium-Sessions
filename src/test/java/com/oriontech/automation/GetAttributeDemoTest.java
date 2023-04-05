@@ -15,6 +15,16 @@ public class GetAttributeDemoTest extends BaseUiTest {
         WebElement element = driver.findElement(By.id("example_previous"));
         String value = element.getAttribute("aria-disabled");
         System.out.println(value);
-        Assert.assertTrue(value.equals("true"));
+        Assert.assertTrue(value.equals("false"));
+    }
+
+    @Test
+    public void getAttributeOfTextBox() {
+        driver.get("https://www.facebook.com");
+        WebElement element = driver.findElement(By.name("email"));
+
+        element.sendKeys("rahulvarma@gmail.com");
+        String value = element.getAttribute("value");
+        System.out.println(value);
     }
 }
