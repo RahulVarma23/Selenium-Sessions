@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import java.io.IOException;
 
 public class GetAttributeDemoTest extends BaseUiTest {
 
@@ -19,7 +20,7 @@ public class GetAttributeDemoTest extends BaseUiTest {
     }
 
     @Test
-    public void getAttributeOfTextBox() {
+    public void getAttributeOfTextBox() throws IOException {
         driver.get("https://www.facebook.com");
         WebElement element = driver.findElement(By.name("email"));
 

@@ -20,11 +20,11 @@ public class CalendarPickerDemoTest1 extends BaseUiTest {
         while (true)
         {
             String monthOnPage = driver.findElement(By.xpath("//div[@class='DayPicker-Caption' and @role='heading']")).getText();
-            if (monthOnPage.equals(MonthToBeSelected))
+            if (!monthOnPage.equals(MonthToBeSelected))
             {
-                break;
-            } else {
                 driver.findElement(By.xpath("//span[@role='button' and @class='DayPicker-NavButton DayPicker-NavButton--next']")).click();
+            } else {
+                break;
             }
         }
         driver.findElement(By.xpath("//div[@class='DayPicker-Week']/div[@class='DayPicker-Day']/p[text()=" + DAY + "]")).click();
