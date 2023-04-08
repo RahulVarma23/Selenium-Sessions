@@ -12,6 +12,11 @@ public class CustomDriver {
 		  WebDriverManager.chromedriver().setup();
 		  ChromeOptions options = new ChromeOptions();
 		  //options.addArguments("--headless");
+
 		  return new ChromeDriver(options);
+
+
+
+
 	}
 }

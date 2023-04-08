@@ -27,5 +27,6 @@ public class GetAttributeDemoTest extends BaseUiTest {
         element.sendKeys("rahulvarma@gmail.com");
         String value = element.getAttribute("value");
         System.out.println(value);
+        driver.close();
     }
 }

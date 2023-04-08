@@ -7,7 +7,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,25 +20,41 @@ public abstract class BaseUiTest {
 
     WebDriver driver;
 
-    @BeforeMethod
-    public void runPrerequisite() {
+    @BeforeSuite
+    public void cleanUp() {
+        String directoryToClean = ".//screenshots";
+        File file = new File(directoryToClean);
+        try {
+            FileUtils.cleanDirectory(file);
+        } catch (IOException e) {
+            throw new RuntimeException("File not found" +e);
+        }
+    }
+
+    @BeforeSuite
+    public void initializeDriver() {
         driver = CustomDriver.initializeChrome();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterMethod
-    public void tearDown(ITestResult result) throws IOException {
+    public void onTestFailure(ITestResult result) throws IOException {
         String methodName = result.getName().trim();
-        takeScreenshot(methodName);
+        if(ITestResult.FAILURE==result.getStatus()){
+            takeScreenshot(methodName);
+        }
+    }
+
+    @AfterSuite
+    public void tearDown() {
         driver.quit();
     }
 
     public String getDateTime(String pattern) {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String formattedDate = simpleDateFormat.format(date);
-        return formattedDate;
+        return simpleDateFormat.format(date);
     }
 
     public void takeScreenshot(String methodName) throws IOException {

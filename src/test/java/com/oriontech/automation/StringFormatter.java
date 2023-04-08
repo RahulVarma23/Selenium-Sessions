@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class StringFormatter extends BaseUiTest {
 
-    String locator = "a[href*=%s]";
+    String locator = "a[href1=%s]";
     private static final String URL = "https://jqueryui.com/droppable/";
 
     @Test
