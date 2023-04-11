@@ -1,18 +1,21 @@
 package com.oriontech.automation;
 
-import staticData.enums.WidgetType;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import staticData.enums.WidgetType;
 
-public class StringFormatter extends BaseUiTest {
+public class BrowserNavigationCommands extends BaseUiTest {
 
     String locator = "a[href*=%s]";
     private static final String URL = "https://jqueryui.com/droppable/";
 
     @Test
-    public void handleMultipleElementsWithFormatter() {
+    public void handleBrowserNavigation() {
         driver.get(URL);
         clickOnWidget(WidgetType.AUTOCOMPLETE.getValue());
+        refreshPage();
+        driver.navigate().back();
+        driver.navigate().forward();
     }
 
     public void clickOnWidget(String widgetType) {
