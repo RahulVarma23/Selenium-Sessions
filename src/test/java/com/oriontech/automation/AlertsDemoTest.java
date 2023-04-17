@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class AlertsDemoTest extends BaseUiTest {
 
-    @Test
+    @Test()
     public void handleAlerts() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 15);
         driver.get("https://demo.guru99.com/test/delete_customer.php");
