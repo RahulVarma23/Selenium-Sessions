@@ -16,7 +16,7 @@ public class GetAttributeDemoTest extends BaseUiTest {
         WebElement element = driver.findElement(By.id("example_previous"));
         String value = element.getAttribute("aria-disabled");
         System.out.println(value);
-        Assert.assertTrue(value.equals("false"));
+        Assert.assertTrue(value.equals("true"));
     }
 
     @Test

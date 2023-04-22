@@ -27,7 +27,12 @@
 					</execution>
 				</executions>
 				<configuration>
-					<suiteXmlFiles>testng.xml</suiteXmlFiles>
+					<!--suppress UnresolvedMavenProperty -->
+					<suiteXmlFiles>${FileName}</suiteXmlFiles>
+					<systemPropertyVariables>
+						<!--suppress UnresolvedMavenProperty -->
+						<browser>${browser}</browser>
+					</systemPropertyVariables>
 				</configuration>
 			</plugin>
 		</plugins>
