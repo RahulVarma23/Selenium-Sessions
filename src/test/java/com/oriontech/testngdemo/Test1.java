@@ -1,26 +1,28 @@
 package com.oriontech.testngdemo;
 
-import java.util.Arrays;
-import java.util.List;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class Test1 {
-    static int a =10;
-    public static void main(String[] args) {
-        String s1 = "rahul";
-        String s2 = "varma";
 
-
+    @Test
+    public void m1 () {
+        System.out.println("print1");
+        Assert.assertTrue(false);
+        System.out.println("print2");
     }
 
-    public static String reverses(String s){
-        if(s==null || s.length()<=1 ){
-            return s;
-        }
-
-        String rev = "";
-        for(int i=s.length()-1;i>=0;i--){
-            rev += s.charAt(i);
-        }
-        return rev;
+    @Test
+    public void m2 () {
+        System.out.println("print1");
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(true);
+        System.out.println("print2");
+        softAssert.assertEquals(1, 2);
+        System.out.println("print3");
+        softAssert.assertEquals("java", "java");
+        System.out.println("print4");
+        softAssert.assertAll();
     }
 }
