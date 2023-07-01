@@ -22,7 +22,6 @@ public class AlertsDemoTest extends BaseUiTest {
         Alert alert = driver.switchTo().alert();
         System.out.println("Alert text: "+ alert.getText());
         alert.accept();
-
         alert = driver.switchTo().alert();
         Assert.assertTrue(alert.getText().equals("Customer Successfully Delete!"));
     }

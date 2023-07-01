@@ -20,9 +20,11 @@ public abstract class BaseUiTest {
     @BeforeSuite
     public void cleanUp() {
         String directoryToClean = ".//screenshots";
-        File file = new File(directoryToClean);
+        File directory = new File(directoryToClean);
         try {
-            FileUtils.cleanDirectory(file);
+          if(directory.exists()&& directory.isDirectory()){
+              FileUtils.cleanDirectory(directory);
+          }
         } catch (IOException e) {
             throw new RuntimeException("Directory not found" +e);
         }
