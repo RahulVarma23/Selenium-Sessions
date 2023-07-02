@@ -16,7 +16,7 @@ public class CustomDriver {
 			case "chrome":
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
-			//options.addArguments("--headless");
+			options.addArguments("--headless");
 			return new ChromeDriver(options);
 
 			case "firefox":

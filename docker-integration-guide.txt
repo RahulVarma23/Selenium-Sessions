@@ -1,0 +1,22 @@
+
+1. pull the images:
+docker pull selenium/hub
+docker pull selenium/node-chrome-debug
+docker pull selenium/node-firefox-debug
+
+2. run selenium hub image
+docker run -d -p 4545:4444 --name selenium-hub selenium/hub
+
+docker run -d -P --link selenium-hub:hub --name chrome-node selenium/node-chrome-debug
+
+3. Register nodes
+docker run -d -P --link selenium-hub:hub --network selenium-grid selenium/node-chrome-debug
+docker run -d -P --link selenium-hub:hub selenium/node-chrome-debug
+
+
+B. with yml file
+
+
+1. create docker compose yml file which will have image configurations for hub and nodes
+2. run this compose file
+docker-compose -f docker-compose.yml up
