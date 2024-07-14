@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class DropdownDemoTest extends BaseUiTest {
 	
 	@Test
 	public void handleDropdown() throws InterruptedException {
-		  WebDriverWait webDriverWait = new WebDriverWait(driver, 15);
+		  WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		  driver.get("https://www.facebook.com");
 		  String title = driver.getTitle();
 		  System.out.println("Title is: "+title);

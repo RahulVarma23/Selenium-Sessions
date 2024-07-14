@@ -3,7 +3,6 @@ package core;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -14,20 +13,16 @@ public class CustomDriver {
 
 		switch(browser){
 			case "chrome":
-			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");
 			return new ChromeDriver(options);
 
 			case "firefox":
-				WebDriverManager.firefoxdriver().setup();
 				FirefoxOptions options1 = new FirefoxOptions();
 				//options.addArguments("--headless");
 				return new FirefoxDriver(options1);
 
-
 			default:
-				WebDriverManager.edgedriver().setup();
 				return new EdgeDriver();
 		}
 
